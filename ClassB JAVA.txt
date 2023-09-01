@@ -1,0 +1,44 @@
+package package1;
+import java.util.Scanner;
+public class ClassB {
+    void m1() {
+        ClassA aobj = new ClassA();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Please enter your roll number");
+        int rollNo = sc.nextInt();
+        aobj.setStudentRollNumber(rollNo);
+
+        System.out.println("Please enter your name");
+        String name = sc.next();
+        aobj.setStudentName(name);
+System.out.println("please enter your mailid");
+String mail=sc.next();
+aobj.setStudentName(mail);
+System.out.println("please enter your address");
+String address=sc.next();
+aobj.setStudentName(mail);
+        System.out.println("Roll Number: " + rollNo);
+        System.out.println("Name: " + name);
+        System.out.println("mailid:"+mail);
+        System.out.println("Address:"+address);
+        
+        System.out.println("Roll Number: " + aobj.getStudentRollNumber());
+        System.out.println("Name: " + aobj.getStudentName());
+        System.out.println("mailid: " + aobj.getStudentName());
+        System.out.println("Address: " + aobj.getStudentName());
+        System.out.println("-------");
+    }
+
+    public static void main(String[] args) {
+        ClassB aobj = new ClassB();
+        aobj.m1();
+    }
+}
+
+
+
+
+
+
+
