@@ -1,0 +1,72 @@
+package package1;
+import java.util.Scanner;
+
+public class Atm
+{
+  private BankAccount account;
+    private Scanner scanner;
+
+    public Atm(BankAccount account) {
+        this.account = account;
+        scanner = new Scanner(System.in);
+    }
+
+    public void showOptions() {
+        System.out.println("1. Withdraw");
+        System.out.println("2. Deposit");
+        System.out.println("3. Check Balance");
+        System.out.println("4. Exit");
+    }
+
+    public void withdrawOption() {
+        System.out.print("Enter amount to withdraw: ");
+        double amount = scanner.nextDouble();
+        if (amount <= 0) {
+            System.out.println("Invalid amount.");
+            return;
+        }
+        account.withdraw(amount);
+    }
+
+    public void depositOption() {
+        System.out.print("Enter amount to deposit: ");
+        double amount = scanner.nextDouble();
+        if (amount <= 0) {
+            System.out.println("Invalid amount.");
+            return;
+        }
+        account.deposit(amount);
+    }
+
+    public void checkBalanceOption() {
+        System.out.println("Current balance: $" + account.getBalance());
+    }
+
+    public void run() {
+        int choice;
+        do {
+            showOptions();
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    withdrawOption();
+                    break;
+                case 2:
+                    depositOption();
+                    break;
+                case 3:
+                    checkBalanceOption();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        } while (choice != 4);
+    }
+}
+
+
